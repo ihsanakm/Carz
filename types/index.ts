@@ -29,9 +29,11 @@ export interface Car {
     max_hwy_mpg: number;
     min_comb_mpg: number;
     max_comb_mpg: number;
-    limit: number; // Must be between 1 and 50
+    limit: number; 
     city_mpg:number
   }
+
+  export type CarState = Car[] & { message?: string };
 
   export interface CarCardProps {
     car: Car;
@@ -41,4 +43,43 @@ export interface Car {
     car: Car; 
     isOpen: boolean;
     closeModal: () => void;
+  }
+
+  export interface filterProps{
+    manufacturer: string,
+    year: number,
+    fuel: string,
+    limit: number,
+    model: string,
+
+  }
+
+  export interface HomeProps {
+    searchParams: filterProps;
+  }
+
+  export interface OptionProps {
+    title: string;
+    value: string;
+  }
+  
+  export interface CustomFilterProps<T> {
+    options: OptionProps[];
+    setFilter: (selected: T) => void;
+  }
+  
+  export interface ShowMoreProps {
+    pageNumber: number;
+    isNext: boolean;
+    setLimit: (limit: number) => void;
+  }
+  
+
+  export interface SearchBarProps {
+    setManuFacturer: (manufacturer: string) => void;
+    setModel: (model: string) => void;
+  }
+  export interface SearchManuFacturerProps {
+    selected: string;
+    setSelected: (selected: string) => void;
   }

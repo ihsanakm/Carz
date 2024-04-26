@@ -33,7 +33,7 @@ export const CarCard = ({car}:CarCardProps) => {
         </p>
 
         <div className='relative h-40 w-full my-3 object-contain'>
-            <Image src={generateImageURL(car)} alt='car model' fill priority className='object-contain'/>
+            <Image src={generateImageURL(car,'01')} alt='car model' fill priority className='object-contain'/>
             
         </div>
 
