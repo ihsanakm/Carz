@@ -29,21 +29,14 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
   };
 
 
-export const generateImageURL= (car:Car, angle?:string)=>{
-    const url = new URL('https://cdn.imagin.studio/getimage')
+export const generateImageURL = (car: Car, angle: string) => {
+    const { make, model, year } = car;
+    const baseUrl = 'https://cdn.imagin.studio/getimage';
 
-    const {make, model, year} = car
+    const url = `${baseUrl}?customer=hrjavascript-mastery&make=${make}&modelFamily=${model.split(" ")[0]}&zoomType=fullscreen&modelYear=${year}&angle=${angle}`;
 
-    url.searchParams.append('customer','hrjavascript-mastery')
-    url.searchParams.append('make',make)
-    url.searchParams.append('modelFamily',model.split(" ")[0])
-    url.searchParams.append('zoomType','fullscreen')
-    url.searchParams.append('modelYear',`${year}`)
-    url.searchParams.append('angle',`${angle}`)
-
-    return `${url}`
-
-}
+    return url;
+};
 
 export const updateSearchParams = (type: string, value: string) => {
     // Get the current URL search params

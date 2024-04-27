@@ -794,6 +794,9 @@ video {
 .text-right{
   text-align: right;
 }
+.align-middle{
+  vertical-align: middle;
+}
 .text-4xl{
   font-size: 2.25rem;
   line-height: 2.5rem;
